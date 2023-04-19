@@ -1,47 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Console Tricks!</title>
-  <link rel="icon" href="https://fav.farm/🔥" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    <script>
+      const dogs = [
+        { name: 'Snickers', age: 2 },
+        { name: 'hugo', age: 8 },
+      ];
 
-  <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+      function makeGreen() {
+        const p = document.querySelector('p');
+        p.style.color = '#BADA55';
+        p.style.fontSize = '50px';
+      }
 
-    function makeGreen() {
+      // Regular
+      console.log(dogs);
+
+      // Interpolated
+      console.log('hello %s you are %s years old', dogs[0].name, dogs[1].age);
+
+      // Styled
+      console.log('hello %c you are %c years old', 'color:red', 'font-size:20px');
+
+      // warning!
+      console.warn('Dang It!');
+
+      // Error :|
+      console.error('Shoot!');
+
+      // Info
+      console.info('Take this: info!');
+
+      // Testing
+      console.debug(dogs.some((dog) => dog.name.includes('nic')));
+
+      // clearing
+      console.clear();
+
+      // Viewing DOM Elements
       const p = document.querySelector('p');
-      p.style.color = '#BADA55';
-      p.style.fontSize = '50px';
-    }
+      console.log(p);
 
-    // Regular
+      // Grouping together
+      dogs.forEach((dog) => {
+        console.group(dog.name.toUpperCase());
+        console.log(`Your name is ${dog.name}`);
+        console.log(`You are ${dog.age} years old`);
+        console.groupEnd(dog.name.toUpperCase());
+      });
 
-    // Interpolated
+      // counting
+      console.count('Hey');
+      console.count('Hey');
+      console.count('Hey');
+      console.count('Hey');
 
-    // Styled
-
-    // warning!
-
-    // Error :|
-
-    // Info
-
-    // Testing
-
-    // clearing
-
-    // Viewing DOM Elements
-
-    // Grouping together
-
-    // counting
-
-    // timing
-
-  </script>
-</body>
+      // timing
+      console.time(dogs[0].name.toUpperCase());
+      console.timeLog(dogs[0].name.toUpperCase());
+      console.timeStamp(dogs[0].name.toUpperCase());
+      console.timeEnd(dogs[0].name.toUpperCase());
+    </script>
+  </body>
 </html>
