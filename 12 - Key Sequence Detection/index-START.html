@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Key Detection</title>
-  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
-  <link rel="icon" href="https://fav.farm/🔥" />
-</head>
-<body>
-<script>
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <script>
+      const pressed = [];
+      const secret = 'hosam';
+      document.addEventListener('keyup', (e) => {
+        pressed.push(e.key);
+        pressed.splice(-secret.length - 1, pressed.length - secret.length);
+        if (pressed.join('').includes(secret)) cornify_add();
+      });
+    </script>
+  </body>
 </html>
