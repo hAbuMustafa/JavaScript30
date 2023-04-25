@@ -63,15 +63,13 @@
         'An Old Dog',
       ];
 
+      function firstWordIsNoun(text) {
+        return ['A', 'The', 'An'].some((noun) => text.split(' ')[0] === noun);
+      }
+
       const sorted = bands.sort((a, b) => {
-        const wordA =
-          a.split(' ')[
-            ['A', 'The', 'An'].some((noun) => a.split(' ')[0] === noun) ? 1 : 0
-          ];
-        const wordB =
-          b.split(' ')[
-            ['A', 'The', 'An'].some((noun) => b.split(' ')[0] === noun) ? 1 : 0
-          ];
+        const wordA = a.split(' ')[firstWordIsNoun(a) ? 1 : 0];
+        const wordB = b.split(' ')[firstWordIsNoun(b) ? 1 : 0];
 
         return wordA > wordB ? 1 : -1;
       });
