@@ -13,6 +13,7 @@
         window.SpeechRecognition || window.webkitSpeechRecognition;
 
       const recognition = new SpeechRecognition();
+      recognition.lang = 'ar-EG';
 
       let p = document.createElement('p');
       const words = document.querySelector('.words');
